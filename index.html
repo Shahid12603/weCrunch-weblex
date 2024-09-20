@@ -71,9 +71,31 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="login.html" class="user_link">
+              <a href="javascript:void(0);" id="openModal" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+            </a>
+            <!-- popup for the signup-->
+            <div id="signupModal" class="modal">
+                <div class="popup-content">
+                  <div class="close-wrapper">
+                    <h2>Sign In</h2>
+                    <img src="./images/closeIcon.svg" class="close-icon"/>
+                    </div>
+                    <form id="signupForm">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <button type="submit">Create Account</button>
+                    </form>
+                    <div class="form-bottom-font">Already have an account? Log in</div>
+                </div>
+            </div>            
               <a class="cart_link" href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -1348,6 +1370,10 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+  <!--popup script file-->
+
+  <script src="./js/signin.js"></script>
 
 </body>
 

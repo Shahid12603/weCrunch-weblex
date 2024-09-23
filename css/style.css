@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+*{
+  font-family: "Poppins", sans-serif;
+}
+
 .layout_padding {
   padding: 90px 0;
 }
@@ -1141,4 +1145,69 @@ button:focus {
   h2 {
     font-size: 20px; /* Adjust title font size for small screens */
   }
+}
+/* cart style  */
+
+
+.cart_link{
+  position: relative;
+}
+.cart_link span{
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffbe33;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: -15px;
+}
+
+.cartTab{
+  font-family: "Poppins";
+  width: 400px;
+  background-color: #222831;
+  color: black;
+  position: fixed;
+  inset: 0 0 0 auto;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  display: none;
+}
+
+.cartTab h1{
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+  color: #f1f2f3;
+}
+
+.cartTab .checkOut{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .checkOut div{
+  background-color: #ffbe33;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cartTab .checkOut div:nth-child(1){
+  background-color: #ffffff;
+}
+
+.active .cartTab{
+  display: flex;
 }

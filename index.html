@@ -19,9 +19,12 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+    integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+    crossorigin="anonymous" />
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
 
@@ -31,8 +34,10 @@
   <link href="css/responsive.css" rel="stylesheet" />
   <!-- custom fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -51,7 +56,8 @@
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -71,33 +77,14 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="javascript:void(0);" id="openModal" class="user_link">
+              <!-- <a href=""  class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
-            </a>
-            <!-- popup for the signup-->
-            <div id="signupModal" class="modal">
-                <div class="popup-content">
-                  <div class="close-wrapper">
-                    <h2>Sign In</h2>
-                    <img src="./images/closeIcon.svg" class="close-icon"/>
-                    </div>
-                    <form id="signupForm">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
-                        
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                        
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-                        
-                        <button type="submit">Create Account</button>
-                    </form>
-                    <div class="form-bottom-font">Already have an account? Log in</div>
-                </div>
-            </div>            
+              </a> -->
+
               <a class="cart_link" href="#">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                  style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
                       <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -155,9 +142,52 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form> -->
-              <a href="" class="order_online">
-                Order Online
-              </a>
+              <a href="javascript:void(0);" id="openModal" class="order_online">Login / SignIn</a>
+
+              <!-- Modal -->
+              <div id="authModal" class="modal">
+                <div class="popup-content">
+                  <div class="close-wrapper">
+                    <h2 id="modalTitle">Sign In</h2>
+                    <img src="./images/closeIcon.svg" class="close-icon" id="closeModal" />
+                  </div>
+
+                  <!-- Sign Up Form -->
+                  <form id="signupForm" class="auth-form">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" required />
+
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required />
+
+                    <label for="signup-password">Password</label>
+                    <div class="password-wrapper">
+                      <input type="password" id="signup-password" name="password" required />
+                      <!-- Visible Eye Icon -->
+                      <img class="eye-open" id="eye-open" src="./images/passwordEyeImage.svg" style="cursor: pointer;" onclick="togglePasswordVisibility();" />
+                      <!-- Eye Crossed Icon (Initially Hidden) -->
+                      <img class="eye-closed" id="eye-closed" src="./images/passwordEyeHalfCloseImage.svg" style="cursor: pointer; display: none;" onclick="togglePasswordVisibility();" />
+                    </div>
+                    <button type="submit">Create Account</button>
+                  </form>
+
+                  <!-- Login Form (Initially Hidden) -->
+                  <form id="loginForm" class="auth-form" style="display: none;">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required />
+
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required />
+
+                    <button type="submit">Log In</button>
+                  </form>
+
+                  <!-- Footer for switching between Sign Up and Log In -->
+                  <div class="form-bottom-font" id="formSwitch">
+                    Already have an account? <a href="javascript:void(0);" id="switchToLogin">Log in</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
@@ -177,7 +207,10 @@
                       Fried Chicken Restaurant
                     </h1>
                     <p>
-                      At our fried chicken restaurant, we serve crispy, golden fried chicken made with love and quality ingredients. Enjoy mouthwatering flavors in every bite, paired with sides that bring comfort and satisfaction. Whether you dine in or take away, expect fresh, delicious meals served with a smile every time!
+                      At our fried chicken restaurant, we serve crispy, golden fried chicken made with love and quality
+                      ingredients. Enjoy mouthwatering flavors in every bite, paired with sides that bring comfort and
+                      satisfaction. Whether you dine in or take away, expect fresh, delicious meals served with a smile
+                      every time!
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
@@ -232,7 +265,7 @@
             </div>
           </div>
         </div> -->
-        <!-- <div class="container">
+          <!-- <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#customCarousel1" data-slide-to="1"></li>
@@ -264,7 +297,9 @@
                   <span>30%</span> Off
                 </h6>
                 <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                    style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -333,7 +368,9 @@
                   <span>30%</span> Off
                 </h6>
                 <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                    style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -433,14 +470,17 @@
                     Delicious Pizza
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $20
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -457,7 +497,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -509,14 +550,17 @@
                     Delicious Burger
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -533,7 +577,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -585,14 +630,17 @@
                     Delicious Pizza
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $17
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -609,7 +657,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -661,14 +710,17 @@
                     Delicious Pasta
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $18
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -685,7 +737,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -737,14 +790,17 @@
                     French Fries
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -761,7 +817,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -813,14 +870,17 @@
                     Delicious Pizza
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $15
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -837,7 +897,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -889,14 +950,17 @@
                     Tasty Burger
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $12
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -913,7 +977,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -965,14 +1030,17 @@
                     Tasty Burger
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $14
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -989,7 +1057,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -1041,14 +1110,17 @@
                     Delicious Pasta
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
                     <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029"
+                        style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -1065,7 +1137,8 @@
                         </g>
                         <g>
                           <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                            <path
+                              d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
                          c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
                           </g>
                         </g>
@@ -1229,7 +1302,8 @@
             <div class="box">
               <div class="detail-box">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam
                 </p>
                 <h6>
                   Moana Michell
@@ -1247,7 +1321,8 @@
             <div class="box">
               <div class="detail-box">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam
                 </p>
                 <h6>
                   Mike Hamell
@@ -1305,7 +1380,8 @@
               Feane
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
+              words, combined with
             </p>
             <div class="footer_social">
               <a href="">
@@ -1353,8 +1429,9 @@
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
   <!-- owl slider -->

@@ -109,45 +109,61 @@
                     <h2 id="modalTitle">Sign In</h2>
                     <img src="./images/closeIcon.svg" class="close-icon" id="closeModal" />
                   </div>
-
+              
                   <!-- Sign Up Form -->
                   <form id="signupForm" class="auth-form">
                     <label for="signup-username">Username</label>
-                    <input type="text" id="signup-username" name="username" required />
+                    <input type="text" id="signup-username" name="username" />
+                    <span class="error-message" id="signup-username-error"></span>
 
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="number" id="signup-phone" name="phone" />
+                    <span class="error-message" id="signup-phone-error"></span>
+              
                     <label for="signup-email">Email</label>
-                    <input type="email" id="signup-email" name="email" required />
-
+                    <input type="email" id="signup-email" name="email" />
+                    <span class="error-message" id="signup-email-error"></span>
+              
                     <label for="signup-password">Password</label>
                     <div class="password-wrapper">
-                      <input type="password" id="signup-password" name="password" required />
-                      <!-- Visible Eye Icon -->
-                      <img class="eye-open" id="eye-open" src="./images/passwordEyeImage.svg" style="cursor: pointer;"
-                        onclick="togglePasswordVisibility();" />
-                      <!-- Eye Crossed Icon (Initially Hidden) -->
-                      <img class="eye-closed" id="eye-closed" src="./images/passwordEyeHalfCloseImage.svg"
-                        style="cursor: pointer; display: none;" onclick="togglePasswordVisibility();" />
+                      <input type="password" id="signup-password" name="password" />
+                      <img class="eye-open" id="signup-eye-open" src="./images/passwordEyeImage.svg"
+                        style="cursor: pointer;"
+                        onclick="togglePasswordVisibility('signup-password', 'signup-eye-open', 'signup-eye-closed');" />
+                      <img class="eye-closed" id="signup-eye-closed" src="./images/passwordEyeHalfCloseImage.svg"
+                        style="cursor: pointer; display: none;"
+                        onclick="togglePasswordVisibility('signup-password', 'signup-eye-open', 'signup-eye-closed');" />
                     </div>
+                    <span class="error-message" id="signup-password-error"></span>
                     <button type="submit">Create Account</button>
                   </form>
-
-                  <!-- Login Form (Initially Hidden) -->
+              
+                  <!-- Login Form -->
                   <form id="loginForm" class="auth-form" style="display: none;">
                     <label for="login-email">Email</label>
-                    <input type="email" id="login-email" name="email" required />
-
+                    <input type="email" id="login-email" name="email" />
+                    <span class="error-message" id="login-email-error"></span>
+              
                     <label for="login-password">Password</label>
-                    <input type="password" id="login-password" name="password" required />
-
+                    <div class="password-wrapper">
+                      <input type="password" id="login-password" name="password" />
+                      <img class="eye-open" id="login-eye-open" src="./images/passwordEyeImage.svg"
+                        style="cursor: pointer;"
+                        onclick="togglePasswordVisibility('login-password', 'login-eye-open', 'login-eye-closed');" />
+                      <img class="eye-closed" id="login-eye-closed" src="./images/passwordEyeHalfCloseImage.svg"
+                        style="cursor: pointer; display: none;"
+                        onclick="togglePasswordVisibility('login-password', 'login-eye-open', 'login-eye-closed');" />
+                    </div>
+                    <span class="error-message" id="login-password-error"></span>
                     <button type="submit">Log In</button>
                   </form>
-
+              
                   <!-- Footer for switching between Sign Up and Log In -->
-                  <div class="form-bottom-font" id="formSwitch">
-                    Already have an account? <a href="javascript:void(0);" id="switchToLogin">Log in</a>
-                  </div>
+                  <div class="form-bottom-font" id="formSwitch"></div>
                 </div>
               </div>
+              
+              
               <a href="menu.html" class="order_online">
                 Order Online
               </a>
@@ -259,7 +275,7 @@
                 <h6>
                   <span>30%</span> Off
                 </h6>
-                <a href="menu.html">Order Now <img src="./images/cartIcon.svg" class="cart-icon"/></a>
+                <a href="menu.html">Order Now <img src="./images/cartIcon.svg" class="cart-icon" /></a>
               </div>
             </div>
           </div>
@@ -275,7 +291,7 @@
                 <h6>
                   <span>30%</span> Off
                 </h6>
-                <a href="menu.html">Order Now <img src="./images/cartIcon.svg" class="cart-icon"/></a>
+                <a href="menu.html">Order Now <img src="./images/cartIcon.svg" class="cart-icon" /></a>
               </div>
             </div>
           </div>
@@ -329,7 +345,7 @@
                     <h6>
                       ₹439
                     </h6>
-                    <a href=""><img src="./images/cartIcon.svg" class="cart-icon"/></a>
+                    <a href=""><img src="./images/cartIcon.svg" class="cart-icon" /></a>
                     </a>
                   </div>
                 </div>
@@ -354,7 +370,7 @@
                       ₹297
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -379,7 +395,7 @@
                       ₹103
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -406,7 +422,7 @@
                       ₹1631
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -432,7 +448,7 @@
                       ₹499
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -458,7 +474,7 @@
                       $10
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -484,7 +500,7 @@
                       ₹655
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -510,7 +526,7 @@
                       $12
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -536,7 +552,7 @@
                       $14
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>
@@ -562,7 +578,7 @@
                       $10
                     </h6>
                     <a href="">
-                      <img src="./images/cartIcon.svg" class="cart-icon"/>
+                      <img src="./images/cartIcon.svg" class="cart-icon" />
                     </a>
                   </div>
                 </div>

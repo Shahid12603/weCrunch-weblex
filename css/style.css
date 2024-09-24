@@ -1093,6 +1093,18 @@ input:focus {
   box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); /* Optional: glow effect */
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+
+input.error {
+  border: 1px solid red;
+  box-shadow: 0 0 5px rgba(244, 0, 0, 0.5);
+}
+
+
 /* Button styles */
 button {
   padding: 10px;
@@ -1146,9 +1158,9 @@ button:focus {
     font-size: 20px; /* Adjust title font size for small screens */
   }
 }
+
+
 /* cart style  */
-
-
 .cart_link{
   position: relative;
 }

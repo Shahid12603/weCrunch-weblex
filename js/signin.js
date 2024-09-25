@@ -122,7 +122,7 @@ function initFormValidation() {
 }
 
 // Handle Sign Up form submission
-document.getElementById('signupForm').onsubmit = function(event) {
+document.getElementById('signupForm').onsubmit = async function(event) {
   event.preventDefault();
 
   // Validate each input field
@@ -139,22 +139,43 @@ document.getElementById('signupForm').onsubmit = function(event) {
       email: document.getElementById('signup-email').value,
       password: document.getElementById('signup-password').value,
     };
-    console.log("Sign Up Data:", formData);
-    alert("Sign up successful!");
 
-    // Clear form fields after successful sign-up
-    document.getElementById('signup-username').value = '';
-    document.getElementById('signup-phone').value = '';
-    document.getElementById('signup-email').value = '';
-    document.getElementById('signup-password').value = '';
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    modal.style.display = "none";
-    document.body.classList.remove("modal-open");
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Sign Up Data:", data);
+        alert("Sign up successful!");
+        
+        // Clear form fields after successful sign-up
+        document.getElementById('signup-username').value = '';
+        document.getElementById('signup-phone').value = '';
+        document.getElementById('signup-email').value = '';
+        document.getElementById('signup-password').value = '';
+
+        // Close the modal
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      } else {
+        alert(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+      alert('An unexpected error occurred. Please try again.');
+    }
   }
 };
 
 // Handle Login form submission
-document.getElementById('loginForm').onsubmit = function(event) {
+document.getElementById('loginForm').onsubmit = async function(event) {
   event.preventDefault();
 
   // Validate each input field
@@ -167,15 +188,39 @@ document.getElementById('loginForm').onsubmit = function(event) {
       email: document.getElementById('login-email').value,
       password: document.getElementById('login-password').value,
     };
-    console.log("Login Data:", formData);
-    alert("Login successful!");
 
-    // Clear form fields after successful login
-    document.getElementById('login-email').value = '';
-    document.getElementById('login-password').value = '';
-    
-    modal.style.display = "none";
-    document.body.classList.remove("modal-open");
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login Data:", data);
+        alert("Login successful!");
+
+        // Optionally, store the token in local storage
+        localStorage.setItem('token', data.token);
+
+        // Clear form fields after successful login
+        document.getElementById('login-email').value = '';
+        document.getElementById('login-password').value = '';
+        
+        // Close the modal
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      } else {
+        alert(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('An unexpected error occurred. Please try again.');
+    }
   }
 };
 

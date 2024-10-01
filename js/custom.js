@@ -7,191 +7,67 @@ function getYear() {
 
 getYear();
 
-// let opnShopping = document.querySelector('.shopping')
-// let closeShopping = document.querySelector('.closeShopping')
-// let list = document.querySelector('.list')
-// let listCard = document.querySelector('.listCard')
-// let body = document.querySelector('body')
-// let total = document.querySelector('.total')
-// let quantity = document.querySelector('.quantity')
+let opnShopping = document.querySelector('.shopping')
+let closeShopping = document.querySelector('.closeShopping')
+let list = document.querySelector('.list')
+let listCard = document.querySelector('.listCard')
+let body = document.querySelector('body')
+let total = document.querySelector('.total')
+let quantity = document.querySelector('.quantity')
 
 
-// opnShopping.addEventListener('click', () => {
-//     body.classList.add('active')
-// })
-// closeShopping.addEventListener('click', () =>{
-//     body.classList.remove('active')
-// })
+opnShopping.addEventListener('click', () => {
+    body.classList.add('active')
+})
+closeShopping.addEventListener('click', () =>{
+    body.classList.remove('active')
+})
 
-// let products = [ 
-//     {
-//         id : 1,
-//         name : "product name 1",
-//         image : "1.png",
-//         price : 749
-//     },
-//     {
-//         id : 2,
-//         name : "product name 2",
-//         image : "2.png",
-//         price : 749
-//     },
-//     {
-//         id : 3,
-//         name : "product name 3",
-//         image : "3.png",
-//         price : 749
-//     },
-//     {
-//         id : 4,
-//         name : "product name 4",
-//         image : "4.png",
-//         price : 749
-//     },
-//     {
-//         id : 5,
-//         name : "product name 5",
-//         image : "5.png",
-//         price : 749
-//     },
-//     {
-//         id : 6,
-//         name : "product name 6",
-//         image : "6.png",
-//         price : 749
-//     },
-//     {
-//         id : 7,
-//         name : "product name 7",
-//         image : "7.png",
-//         price : 749
-//     },
-//     {
-//         id : 8,
-//         name : "product name 8",
-//         image : "8.png",
-//         price : 749
-//     },
-//     {
-//         id : 9,
-//         name : "product name 9",
-//         image : "9.png",
-//         price : 749
-//     },
-//     {
-//         id : 10,
-//         name : "product name 10",
-//         image : "10.png",
-//         price : 749
-//     },
-//     {
-//         id : 11,
-//         name : "product name 11",
-//         image : "11.png",
-//         price : 749
-//     },
-//     {
-//         id : 12,
-//         name : "product name 12",
-//         image : "12.png",
-//         price : 749
-//     },
-//     {
-//         id : 13,
-//         name : "product name 13",
-//         image : "13.png",
-//         price : 749
-//     },
-//     {
-//         id : 14,
-//         name : "product name 14",
-//         image : "41.png",
-//         price : 749
-//     },
-//     {
-//         id : 15,
-//         name : "product name 15",
-//         image : "15.png",
-//         price : 749
-//     },
-//     {
-//         id : 16,
-//         name : "product name 16",
-//         image : "16.png",
-//         price : 749
-//     },
-//     {
-//         id : 17,
-//         name : "product name 17",
-//         image : "17.png",
-//         price : 749
-//     },
-//     {
-//         id : 18,
-//         name : "product name 18",
-//         image : "18.png",
-//         price : 749
-//     },
-//     {
-//         id : 19,
-//         name : "product name 19",
-//         image : "19.png",
-//         price : 749
-//     },
-//     {
-//         id : 20,
-//         name : "product name 20",
-//         image : "20.png",
-//         price : 749
-//     },
-//     {
-//         id : 21,
-//         name : "product name 21",
-//         image : "21.png",
-//         price : 749
-//     }
+document.addEventListener('DOMContentLoaded', loadFood)
 
-// ]
 
-// let listCards = []
-// // function initApp(){
-// //     products.forEach((value,key) =>{
-// //         let newDiv = document.createElement('div')
-// //         newDiv.innerHTML = `
-// //             <img src="images/${value.image}
-// //         `
-// //         list.appendChild(newDiv)
-// //     })
-// // }
-// // initApp()
+function loadFood(){
+    loadContent()
+}
+function loadContent(){
+    // remove food items from the cart
+    let btnRemove = document.querySelectorAll('.cart-remove')
+    btnRemove.forEach((btn) => {
+        btn.addEventListener('click', removeItem)
+    });
 
-// function addToCard(key){
-//     if(listCards[key] == null){
-//         listCards[key] = products[key]
-//         listCards[key].quantity = 1
-//     }
-//     reloadCard()
-// }
+    // product item quantity inside the cart box
+    let qtyElements = document.querySelectorAll('.cart-quantity')
+    qtyElements.forEach((input) => {
+        input.addEventListener('change', changeQty)
+    });
 
-// function reloadCard(){
-//     listCard.innerHTML = ""
-//     let count = 0
-//     let totalPrice = 0
-//     listCards.forEach((value, key) => {
-//         totalPrice = totalPrice + value.price
-//         count = count + value.quantity
+    // product cart
+    let cartBtns = document.querySelectorAll('.add-to-cart')
+    cartBtns.forEach((btn) =>{
+        btn.addEventListener('click', addCart)
+    })
 
-//         if(value != null){
-//             let newDiv = document.createElement('li')
-//             newDiv.innerHTML = `
+}
 
-//             `
-//             listCard.appendChild(newDiv)
-//         }
-//     })
-//     total.innerText = totalPrice.toLocaleString()
-//     quantity.innerText = count
-// }
+// remove items
+
+function removeItem(){
+    this.parentElement.remove()
+}
+
+// change quantities
+function changeQty(){
+    if(isNaN(this.value) || this.value < 1){
+        this.value = 1
+    }
+}
+
+// add cart
+function addCart(){
+    let food = this.parentElement
+    console.log(food.querySelector('.detail-box').innerHTML)    
+}
 
 
 // isotope js

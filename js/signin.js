@@ -9,8 +9,65 @@ const loginForm = document.getElementById("loginForm");
 
 const modalTitle = document.getElementById("modalTitle");
 
+var notyf = new Notyf({
+  duration: 3000,
+  position: {
+    x: 'center',
+    y: 'top'
+  },
+  dismissible: false,
+  behaviour: 'With ripple'
+});
+
+// Function to update the login/logout button and class based on the user's login state
+function updateLoginButton(username) {
+  const userDropdown = document.getElementById('userDropdown');
+  
+  if (username) {
+    // If the user is logged in, show the username with a new class and the logout button
+    btn.innerHTML = username;
+    btn.classList.remove('order_online');
+    btn.classList.add('user_logged_in'); // You can define this class in your CSS
+    btn.onclick = toggleDropdown; // Toggle the dropdown when username is clicked
+
+    // Display the dropdown with "Logout" link when clicking the username
+    document.getElementById('logoutLink').onclick = handleLogout; // Handle logout when clicked
+
+  } else {
+    // If no user is logged in, revert to the login/signup text and class
+    btn.innerHTML = 'Sign In';
+    btn.classList.remove('user_logged_in');
+    btn.classList.add('order_online');
+    btn.onclick = openAuthModal; // Attach the function to open the login modal
+
+    // Hide the logout button
+    userDropdown.style.display = 'none';
+  }
+}
+
+// Toggle the visibility of the dropdown menu
+function toggleDropdown() {
+  const userDropdown = document.getElementById('userDropdown');
+  userDropdown.style.display = userDropdown.style.display === 'none' ? 'block' : 'none';
+}
+
+function handleLogout() {
+  // Clear the token and username from localStorage
+  localStorage.removeItem('token');
+  localStorage.removeItem('username');
+  
+  // Show a success message (optional)
+  notyf.success('You have been logged out successfully.');
+
+  // Update the button to show "Login / Sign In" and remove the logout button
+  updateLoginButton(null);
+
+  // Optionally refresh the page or redirect the user
+  // location.reload();
+}
+
 // Open the modal (default: Sign Up form) 
-btn.onclick = function() {
+function openAuthModal() {
   modal.style.display = "block";
   modalTitle.innerText = "Sign In";
   signupForm.style.display = "flex";
@@ -153,7 +210,16 @@ document.getElementById('signupForm').onsubmit = async function(event) {
 
       if (response.ok) {
         console.log("Sign Up Data:", data);
-        alert("Sign up successful!");
+
+        // Store the token and username in local storage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('username', data.username);
+
+        // Update the login button with the username
+        updateLoginButton(data.username);
+
+        //toaster
+        notyf.success('Signup Successful!');
         
         // Clear form fields after successful sign-up
         document.getElementById('signup-username').value = '';
@@ -165,14 +231,21 @@ document.getElementById('signupForm').onsubmit = async function(event) {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
       } else {
-        alert(`Error: ${data.message}`);
+        //toaster
+        notyf.error(data.message);
       }
     } catch (error) {
       console.error('Error during signup:', error);
-      alert('An unexpected error occurred. Please try again.');
+      notyf.error('An unexpected error occurred, Please try again!');
     }
   }
 };
+
+// On page load, check if the user is logged in and update the button
+window.addEventListener('load', function () {
+  const username = localStorage.getItem('username');
+  updateLoginButton(username); // Update the button with the username or "Login / Sign In"
+});
 
 // Handle Login form submission
 document.getElementById('loginForm').onsubmit = async function(event) {
@@ -202,10 +275,16 @@ document.getElementById('loginForm').onsubmit = async function(event) {
 
       if (response.ok) {
         console.log("Login Data:", data);
-        alert("Login successful!");
 
-        // Optionally, store the token in local storage
+        //to store the token in local storage
         localStorage.setItem('token', data.token);
+        localStorage.setItem('username', data.username);
+
+        // Update the login button text to the username
+        updateLoginButton(data.username);
+
+        //toaster
+        notyf.success('Login Successful!');
 
         // Clear form fields after successful login
         document.getElementById('login-email').value = '';
@@ -215,14 +294,23 @@ document.getElementById('loginForm').onsubmit = async function(event) {
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
       } else {
-        alert(`Error: ${data.message}`);
+        notyf.error(data.message);
       }
     } catch (error) {
       console.error('Error during login:', error);
-      alert('An unexpected error occurred. Please try again.');
+      notyf.error('An unexpected error occurred, Please try again!');
     }
   }
 };
+
+// Check for user session on page reload
+window.addEventListener('load', function () {
+  const username = localStorage.getItem('username');
+  console.log(username);
+  if (username) {
+    updateLoginButton(username); // Change the button text to the username if the user is logged in
+  }
+});
 
 // Call the initialization function to set up the oninput event handlers
 initFormValidation();

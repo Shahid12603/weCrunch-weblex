@@ -1141,6 +1141,44 @@ button:focus {
   text-decoration: underline;
 }
 
+/* Dropdown menu styling */
+.dropdown-content {
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  z-index: 1;
+  display: none; /* Hidden by default */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #ffbe33;
+}
+
+/* Username button style when logged in */
+.user_logged_in {
+  color: #fff;;
+  font-weight: 15px !important;
+  cursor: pointer;
+}
+
+.user_logged_in:hover {
+  color: #fff;
+}
+
+.name-wrapper {
+  display: flex;
+  cursor: pointer;
+}
+
 /* Responsive styling */
 @media screen and (max-width: 768px) {
   .popup-content {
@@ -1221,5 +1259,70 @@ button:focus {
 }
 
 .active .cartTab{
-  display: flex;
+  display: inline-block;
 }
+
+.cart-box{
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  margin-top: 1rem;
+}
+.cart-img{
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+#cart-remove{
+  height: 10px;
+  width: 10px;
+  
+  color: white;
+  /* background-color: white; */
+}
+.detail-box{
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.price-box{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.cart-food-title{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cart-quantity{
+  outline: none;
+  width: 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  height: 1.5rem;
+}
+
+.btn-buy{
+  border: none;
+  width: 200px;
+  height: 65px;
+}
+
+.total{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  color: white;
+}
+
+.total-title{
+  font-size: 1rem;
+  font-weight: 600;
+}
+.total-price{
+  margin-left: 1rem;
+}
+

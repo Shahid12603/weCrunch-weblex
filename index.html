@@ -100,7 +100,16 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form> -->
-              <a href="javascript:void(0);" id="openModal" class="order_online">Login / SignIn</a>
+
+              <div class="name-wrapper">
+                <a href="javascript:void(0);" id="openModal" class="order_online"></a>
+                <img src="./images/downArrowIcon.svg"/>
+            </div>
+
+              <!-- Dropdown for user options -->
+              <div id="userDropdown" class="dropdown-content" style="display:none;">
+                <a href="javascript:void(0);" id="logoutLink">Logout</a>
+              </div>
 
               <!-- Modal -->
               <div id="authModal" class="modal">
@@ -109,7 +118,7 @@
                     <h2 id="modalTitle">Sign In</h2>
                     <img src="./images/closeIcon.svg" class="close-icon" id="closeModal" />
                   </div>
-              
+
                   <!-- Sign Up Form -->
                   <form id="signupForm" class="auth-form">
                     <label for="signup-username">Username</label>
@@ -119,11 +128,11 @@
                     <label for="signup-phone">Phone Number</label>
                     <input type="number" id="signup-phone" name="phone" />
                     <span class="error-message" id="signup-phone-error"></span>
-              
+
                     <label for="signup-email">Email</label>
                     <input type="email" id="signup-email" name="email" />
                     <span class="error-message" id="signup-email-error"></span>
-              
+
                     <label for="signup-password">Password</label>
                     <div class="password-wrapper">
                       <input type="password" id="signup-password" name="password" />
@@ -137,13 +146,13 @@
                     <span class="error-message" id="signup-password-error"></span>
                     <button type="submit">Create Account</button>
                   </form>
-              
+
                   <!-- Login Form -->
                   <form id="loginForm" class="auth-form" style="display: none;">
                     <label for="login-email">Email</label>
                     <input type="email" id="login-email" name="email" />
                     <span class="error-message" id="login-email-error"></span>
-              
+
                     <label for="login-password">Password</label>
                     <div class="password-wrapper">
                       <input type="password" id="login-password" name="password" />
@@ -157,13 +166,12 @@
                     <span class="error-message" id="login-password-error"></span>
                     <button type="submit">Log In</button>
                   </form>
-              
+
                   <!-- Footer for switching between Sign Up and Log In -->
                   <div class="form-bottom-font" id="formSwitch"></div>
                 </div>
               </div>
-              
-              
+
               <a href="menu.html" class="order_online">
                 Order Online
               </a>
@@ -744,9 +752,13 @@
   <!-- custom js -->
   <script src="js/custom.js"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
+
+  <!-- toaster -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
   <!--popup script file-->
 

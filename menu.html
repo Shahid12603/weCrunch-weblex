@@ -24,7 +24,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-
+<!-- fontawesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Custom styles -->
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
@@ -74,6 +75,7 @@
               </a>
               <a class="cart_link shopping" href="#">
                 <img src="./images/cartIcon.svg" class="cart-icon"/>
+                <span class="quantity">0</span>
               </a>
               </form>
               <a href="menu.html" class="order_online">
@@ -114,14 +116,14 @@
       <div class="filters-content">
         <div class="row grid">
           <div class="col-sm-6 col-lg-4 all veg_combo">
-            <div class="box">
+            <div class="box" data-key="1">
               <div>
                 <div class="img-box">
                   <img src="images/veg wrap combo.jpg" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    veg wrap comb
+                    veg wrap combo
                   </h5>
                   <p>
                     Wrap - 2 <br> Cheese Corn nuggets - 6  <br>French fries - 1 <br>Veg Nuggets - 6  <br> Pepsi - 2 
@@ -130,16 +132,20 @@
                     <h6>
                       ₹439
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(1)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all veg_combo">
-            <div class="box">
+            <div class="box" data-key="2">
               <div>
                 <div class="img-box">
                   <img src="images/veg combo.jpg" alt="">
@@ -155,16 +161,20 @@
                     <h6>
                       ₹297
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(2)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
+            <div class="box" data-key="3">
               <div>
                 <div class="img-box">
                   <img src="images/patty burger.png" alt="">
@@ -180,16 +190,20 @@
                     <h6>
                       ₹103
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(3)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="4">
               <div>
                 <div class="img-box">
                   <img src="images/combo xl.jpg" alt="">
@@ -206,16 +220,20 @@
                     <h6>
                       ₹1631
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(4)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="5">
               <div>
                 <div class="img-box">
                   <img src="images/non veg wrap combo.jpg" alt="">
@@ -231,16 +249,20 @@
                     <h6>
                       ₹499
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(5)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="6">
               <div>
                 <div class="img-box">
                   <img src="images/double pack combo.jpg" alt="">
@@ -256,16 +278,20 @@
                     <h6>
                       ₹655
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(6)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="7">
               <div>
                 <div class="img-box">
                   <img src="images/red velvet.jpg" alt="">
@@ -281,16 +307,20 @@
                     <h6>
                       ₹119
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(7)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="8">
               <div>
                 <div class="img-box">
                   <img src="images/brownie3.jpg" alt="">
@@ -306,16 +336,20 @@
                     <h6>
                       ₹110
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(8)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="9">
               <div>
                 <div class="img-box">
                   <img src="images/balck forest ice jar.jpg" alt="">
@@ -331,16 +365,20 @@
                     <h6>
                       ₹119
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(9)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="10">
               <div>
                 <div class="img-box">
                   <img src="images/blue berry mojito.jpeg" alt="">
@@ -356,16 +394,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(10)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="11">
               <div>
                 <div class="img-box">
                   <img src="images/blue mojito.jpeg" alt="">
@@ -381,16 +423,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(11)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="12">
               <div>
                 <div class="img-box">
                   <img src="images/brownie1.jpeg" alt="">
@@ -406,16 +452,20 @@
                     <h6>
                       ₹112
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(12)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="13">
               <div>
                 <div class="img-box">
                   <img src="images/brownie2.jpg" alt="">
@@ -431,16 +481,20 @@
                     <h6>
                       ₹107
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(13)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all Wraps">
-            <div class="box">
+            <div class="box" data-key="14">
               <div>
                 <div class="img-box">
                   <img src="images/chicken bbq wrap.jpeg" alt="">
@@ -456,16 +510,20 @@
                     <h6>
                       ₹97
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(14)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
+            <div class="box" data-key="15">
               <div>
                 <div class="img-box">
                   <img src="images/chicken burger.jpeg" alt="">
@@ -481,16 +539,20 @@
                     <h6>
                       ₹104
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(15)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all chicken">
-            <div class="box">
+            <div class="box" data-key="16">
               <div>
                 <div class="img-box">
                   <img src="images/chicken lollipops.jpg" alt="">
@@ -506,16 +568,20 @@
                     <h6>
                       ₹104
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(16)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all chicken">
-            <div class="box">
+            <div class="box" data-key="17">
               <div>
                 <div class="img-box">
                   <img src="images/chicken nuggets.jpg" alt="">
@@ -531,16 +597,20 @@
                     <h6>
                       ₹53
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(17)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all chicken">
-            <div class="box">
+            <div class="box" data-key="18">
               <div>
                 <div class="img-box">
                   <img src="images/chicken strips.jpg" alt="">
@@ -556,16 +626,20 @@
                     <h6>
                       ₹103
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(18)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all chicken">
-            <div class="box">
+            <div class="box" data-key="19">
               <div>
                 <div class="img-box">
                   <img src="images/chicken wings.jpg" alt="">
@@ -581,16 +655,20 @@
                     <h6>
                       ₹97
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(19)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all Wraps">
-            <div class="box">
+            <div class="box" data-key="20">
               <div>
                 <div class="img-box">
                   <img src="images/chicken wrap.png" alt="">
@@ -606,16 +684,20 @@
                     <h6>
                       ₹89
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(20)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="21">
               <div>
                 <div class="img-box">
                   <img src="images/choco brown sundae.jpeg" alt="">
@@ -631,16 +713,20 @@
                     <h6>
                       ₹111
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(21)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="22">
               <div>
                 <div class="img-box">
                   <img src="images/choco lava.png" alt="">
@@ -656,16 +742,20 @@
                     <h6>
                       ₹99
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(22)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all milkshake">
-            <div class="box">
+            <div class="box" data-key="23">
               <div>
                 <div class="img-box">
                   <img src="images/chocolate milkshake.jpg" alt="">
@@ -681,16 +771,20 @@
                     <h6>
                       ₹90
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(23)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
+            <div class="box" data-key="24">
               <div>
                 <div class="img-box">
                   <img src="images/double chicken burger.jpeg" alt="">
@@ -706,16 +800,20 @@
                     <h6>
                       ₹89
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(24)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="25">
               <div>
                 <div class="img-box">
                   <img src="images/combo s.jpg" alt="">
@@ -731,16 +829,20 @@
                     <h6>
                       ₹706
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(25)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="26">
               <div>
                 <div class="img-box">
                   <img src="images/family burger combo.jpg" alt="">
@@ -756,16 +858,20 @@
                     <h6>
                       ₹965
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(26)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="27">
               <div>
                 <div class="img-box">
                   <img src="images/just for 2 combo.jpg" alt="">
@@ -781,16 +887,20 @@
                     <h6>
                       ₹482
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(27)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="28">
               <div>
                 <div class="img-box">
                   <img src="images/mango mojito.jpeg" alt="">
@@ -806,16 +916,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(28)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all veg_combo">
-            <div class="box">
+            <div class="box" data-key="29">
               <div>
                 <div class="img-box">
                   <img src="images/milkshake meal combo.jpg" alt="">
@@ -831,16 +945,20 @@
                     <h6>
                       ₹148
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(29)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="30">
               <div>
                 <div class="img-box">
                   <img src="images/mint mojito.jpg" alt="">
@@ -856,16 +974,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(30)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all veg_combo">
-            <div class="box">
+            <div class="box" data-key="31">
               <div>
                 <div class="img-box">
                   <img src="images/mojito meal combo.jpg" alt="">
@@ -881,16 +1003,20 @@
                     <h6>
                       ₹122
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(31)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
+            <div class="box" data-key="32">
               <div>
                 <div class="img-box">
                   <img src="images/o1.jpg" alt="">
@@ -906,16 +1032,20 @@
                     <h6>
                       ₹209
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(32)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all veg_combo">
-            <div class="box">
+            <div class="box" data-key="33">
               <div>
                 <div class="img-box">
                   <img src="images/pepsi meal combo.jpg" alt="">
@@ -931,16 +1061,20 @@
                     <h6>
                       ₹90
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(33)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all juices">
-            <div class="box">
+            <div class="box" data-key="34">
               <div>
                 <div class="img-box">
                   <img src="images/pepsi.jpg" alt="">
@@ -956,16 +1090,20 @@
                     <h6>
                       ₹49
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(34)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="35">
               <div>
                 <div class="img-box">
                   <img src="images/pineapple mojito.jpg" alt="">
@@ -981,16 +1119,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(35)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all milkshake">
-            <div class="box">
+            <div class="box" data-key="36">
               <div>
                 <div class="img-box">
                   <img src="images/pista milkshake.jpg" alt="">
@@ -1006,16 +1148,20 @@
                     <h6>
                       ₹90
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(36)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all fries">
-            <div class="box">
+            <div class="box" data-key="37">
               <div>
                 <div class="img-box">
                   <img src="images/smilies.jpg" alt="">
@@ -1031,16 +1177,20 @@
                     <h6>
                       ₹38
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(37)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all nonveg_combo">
-            <div class="box">
+            <div class="box" data-key="38">
               <div>
                 <div class="img-box">
                   <img src="images/snack attack combo.jpeg" alt="">
@@ -1056,16 +1206,20 @@
                     <h6>
                       ₹578
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(38)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all juices">
-            <div class="box">
+            <div class="box" data-key="39">
               <div>
                 <div class="img-box">
                   <img src="images/sprite.jpg" alt="">
@@ -1081,16 +1235,20 @@
                     <h6>
                       ₹49
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(39)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all milkshake">
-            <div class="box">
+            <div class="box" data-key="40">
               <div>
                 <div class="img-box">
                   <img src="images/strawberry milkshake.jpg" alt="">
@@ -1106,16 +1264,20 @@
                     <h6>
                       ₹90
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(40)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all mojitos">
-            <div class="box">
+            <div class="box" data-key="41">
               <div>
                 <div class="img-box">
                   <img src="images/strawberry mojito.jpeg" alt="">
@@ -1131,16 +1293,20 @@
                     <h6>
                       ₹69
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(41)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all deserts">
-            <div class="box">
+            <div class="box" data-key="42">
               <div>
                 <div class="img-box">
                   <img src="images/vanilla ice cream.jpeg" alt="">
@@ -1156,16 +1322,20 @@
                     <h6>
                       ₹48
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(42)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all milkshake">
-            <div class="box">
+            <div class="box" data-key="43">
               <div>
                 <div class="img-box">
                   <img src="images/vanilla milkshake.jpg" alt="">
@@ -1181,16 +1351,20 @@
                     <h6>
                       ₹90
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(43)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all burger">
-            <div class="box">
+            <div class="box" data-key="44">
               <div>
                 <div class="img-box">
                   <img src="images/veg burger.jpeg" alt="">
@@ -1206,16 +1380,20 @@
                     <h6>
                       ₹79
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can" onclick="removeItem(44)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-lg-4 all fries">
-            <div class="box">
+            <div class="box" data-key="45">
               <div>
                 <div class="img-box">
                   <img src="images/veg nuggets.jpg" alt="">
@@ -1231,9 +1409,13 @@
                     <h6>
                       ₹35
                     </h6>
-                    <a href="">
+                    <button class="cart_btn">
                       <img src="./images/cartIcon.svg" class="cart-icon"/>
-                    </a>
+                    </button>
+                    <div class="i">
+                      <input type="number" class="cart-quantity" value="1" min="1">
+                      <i class="fa-solid fa-trash-can cart-remove" onclick="removeItem(45)"></i>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1327,56 +1509,15 @@
     <h1>Food Cart</h1>
     <ul class="cartItems">
       <!-- the cart items will be stored here -->
-      <div class="cart-box">
-        <img src="images/veg burger.jpeg" alt="" class="cart-img">
-      
-        <div class="detail-box">
-          <div class="cart-food-title">Veg burger</div>
-          <div class="price-box">
-            <div class="cart-price">₹79</div>
-            <div class="cart-amt">₹79</div>
-          </div>
-          <input type="number" value="1" class="cart-quantity">
-        </div>
-        <img src="images/icons8-trash-25.png" class="cart-remove">
-      </div>
-      <div class="cart-box">
-        <img src="images/veg burger.jpeg" alt="" class="cart-img">
-      
-        <div class="detail-box">
-          <div class="cart-food-title">Veg burger</div>
-          <div class="price-box">
-            <div class="cart-price">₹79</div>
-            <div class="cart-amt">₹79</div>
-          </div>
-          <input type="number" value="1" class="cart-quantity">
-        </div>
-        <img src="images/icons8-trash-25.png" class="cart-remove">
-      </div>
-      <div class="cart-box">
-        <img src="images/veg burger.jpeg" alt="" class="cart-img">
-      
-        <div class="detail-box">
-          <div class="cart-food-title">Veg burger</div>
-          <div class="price-box">
-            <div class="cart-price">₹79</div>
-            <div class="cart-amt">₹79</div>
-          </div>
-          <input type="number" value="1" class="cart-quantity">
-        </div>
-        <img src="images/icons8-trash-25.png" class="cart-remove">
-      </div>
-      
-
-      <div class="total">
-        <div class="total-title">Total</div>
-        <div class="total-price">0</div>
-      </div>
       <!-- end of cart items -->
     </ul>
+    <div class="total">
+      <div class="total-title">Total</div>
+      <div class="total-price">0</div>
+    </div>
     <div class="checkOut">
-      <div class="totalPrice"><button class="btn-buy">Place Order</button></div>
       <div class="closeShopping">Close</div>
+      <div class="totalPrice"><button class="btn-buy">Place Order</button></div>
     </div>
   </div>
 

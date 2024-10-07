@@ -1141,12 +1141,20 @@ button:focus {
   text-decoration: underline;
 }
 
+.name-wrapper {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
 /* Dropdown menu styling */
 .dropdown-content {
   position: absolute;
+  top: 100%; /* Position it directly below */
+  transform: translateX(28%); /* Shift left by 50% of its width */
   background-color: #fff;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   z-index: 1;
   display: none; /* Hidden by default */
@@ -1165,17 +1173,16 @@ button:focus {
 
 /* Username button style when logged in */
 .user_logged_in {
-  color: #fff;;
+  color: #fff !important;
   font-weight: 15px !important;
   cursor: pointer;
 }
 
 .user_logged_in:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
-.name-wrapper {
-  display: flex;
+.down-arrow-icon {
   cursor: pointer;
 }
 

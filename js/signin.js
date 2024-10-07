@@ -3,10 +3,10 @@ const btn = document.getElementById("openModal");
 const closeModalBtn = document.getElementById("closeModal");
 const switchToLogin = document.getElementById("switchToLogin");
 const formSwitch = document.getElementById("formSwitch");
-
+const downArrowIcon = document.getElementById('down-arrow-icon'); 
 const signupForm = document.getElementById("signupForm");
 const loginForm = document.getElementById("loginForm");
-
+const userDropdown = document.getElementById('user-dropdown');
 const modalTitle = document.getElementById("modalTitle");
 
 var notyf = new Notyf({
@@ -21,15 +21,15 @@ var notyf = new Notyf({
 
 // Function to update the login/logout button and class based on the user's login state
 function updateLoginButton(username) {
-  const userDropdown = document.getElementById('userDropdown');
-  
   if (username) {
     // If the user is logged in, show the username with a new class and the logout button
     btn.innerHTML = username;
     btn.classList.remove('order_online');
     btn.classList.add('user_logged_in'); // You can define this class in your CSS
     btn.onclick = toggleDropdown; // Toggle the dropdown when username is clicked
-
+    downArrowIcon.style.display = 'block';
+    // Add click event to the down arrow icon to toggle the dropdown
+    downArrowIcon.onclick = toggleDropdown;
     // Display the dropdown with "Logout" link when clicking the username
     document.getElementById('logoutLink').onclick = handleLogout; // Handle logout when clicked
 
@@ -39,7 +39,7 @@ function updateLoginButton(username) {
     btn.classList.remove('user_logged_in');
     btn.classList.add('order_online');
     btn.onclick = openAuthModal; // Attach the function to open the login modal
-
+    downArrowIcon.style.display = 'none';
     // Hide the logout button
     userDropdown.style.display = 'none';
   }
@@ -47,7 +47,6 @@ function updateLoginButton(username) {
 
 // Toggle the visibility of the dropdown menu
 function toggleDropdown() {
-  const userDropdown = document.getElementById('userDropdown');
   userDropdown.style.display = userDropdown.style.display === 'none' ? 'block' : 'none';
 }
 
@@ -213,13 +212,13 @@ document.getElementById('signupForm').onsubmit = async function(event) {
 
         // Store the token and username in local storage
         localStorage.setItem('token', data.token);
-        localStorage.setItem('username', data.username);
+        localStorage.setItem('username', data.user.username);
 
         // Update the login button with the username
-        updateLoginButton(data.username);
+        updateLoginButton(data.user.username);
 
         //toaster
-        notyf.success('Signup Successful!');
+        notyf.success(data.message);
         
         // Clear form fields after successful sign-up
         document.getElementById('signup-username').value = '';
@@ -278,13 +277,13 @@ document.getElementById('loginForm').onsubmit = async function(event) {
 
         //to store the token in local storage
         localStorage.setItem('token', data.token);
-        localStorage.setItem('username', data.username);
+        localStorage.setItem('username', data.user.username);
 
         // Update the login button text to the username
-        updateLoginButton(data.username);
+        updateLoginButton(data.user.username);
 
         //toaster
-        notyf.success('Login Successful!');
+        notyf.success(data.message);
 
         // Clear form fields after successful login
         document.getElementById('login-email').value = '';

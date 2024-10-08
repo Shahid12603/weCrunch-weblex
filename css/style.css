@@ -727,17 +727,24 @@ a:focus {
   background-color: #e69c00;
 }
 
-.book_section .map_container {
+.map_container {
   width: 100%;
   height: 345px;
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .book_section .map_container #googleMap {
   height: 100%;
+  margin-top: 50px;
   min-height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* client section start */

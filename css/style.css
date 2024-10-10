@@ -1158,7 +1158,7 @@ button:focus {
 .dropdown-content {
   position: absolute;
   top: 100%; /* Position it directly below */
-  transform: translateX(28%); /* Shift left by 50% of its width */
+  transform: translateX(35%); /* Shift left by 50% of its width */
   background-color: #fff;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

@@ -162,7 +162,7 @@ a:focus {
 
 .navbar-brand img {
   width: 100px;
-  height: 100px;
+  height: 50px;
 }
 .navbar-brand span {
   font-weight: bold;
@@ -356,6 +356,8 @@ a:focus {
 
 .inp-wrap .inp-1{
   width: 70vb;
+  border: none;
+  border-radius: 15px;
 }
 
 
@@ -372,6 +374,7 @@ a:focus {
 .offer_section {
   position: relative;
   padding-top: 45px;
+  margin-top: 40px;
 }
 
 .offer_section .box {

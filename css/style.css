@@ -362,8 +362,12 @@ a:focus {
   border-radius: 15px;
   flex: 1;
   min-width: 0;
+  cursor: default;
 }
 
+.dwn-arw{
+  margin-right: 10px;
+}
 
 .inp-wrap .inp-title{
   padding: 7px;
@@ -402,6 +406,7 @@ a:focus {
   width: 350px;
   text-align: center;
   transition: transform 0.2s ease-in-out;
+  font-family: "Poppins", sans-serif;
 }
 
 .card img{
@@ -1191,7 +1196,7 @@ button:focus {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   z-index: 1;
-  display: none; /* Hidden by default */
+  display: none;/* Hidden by default */
 }
 
 .dropdown-content a {
@@ -1203,6 +1208,85 @@ button:focus {
 
 .dropdown-content a:hover {
   color: #ffbe33;
+}
+
+/* location dropdown */
+.dropdown-cnt{
+  position: absolute;
+  top: -70%; 
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200px;
+  width: 62%;
+  max-width: 100%;
+  height: 60vh;
+  max-width: 700px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  z-index: 1;
+  display: none; 
+}
+
+#location-input{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: solid 1px #d4cfcf;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 50px;
+}
+
+.dropdown-cnt button:hover {
+  color: #ffbe33;
+}
+.dropdown-cnt img{
+  height: 20px;
+  margin-right: 20px;
+}
+
+#location-dropdown button {
+  background-color: white;
+  color: #000000;
+  text-align: left;
+  transition: 0.2s;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;  margin-top: 30px;
+  margin-left: 25%;
+}
+
+#location-input{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25%;
+}
+
+#location-dropdown button:hover{
+  color: #ffbe33;
+}
+
+#autocomplete-results {
+  position: absolute;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  background-color: white;
+}
+
+#autocomplete-results div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#autocomplete-results div:hover {
+  background-color: #f1f1f1;
 }
 
 /* Username button style when logged in */

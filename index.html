@@ -179,10 +179,18 @@
     <section class="slider_section ">
       <div class="inp-wrap">
         <img src="images/location.svg" alt="">
-        <p class="inp-title">Chennai</p>
+        <p class="inp-title" id="inp-title">Chennai</p>
         <img src="images/divider.svg" alt="divider icon" class="div-icon">
-        <img src="images/search.svg" alt="search icon">
-        <input type="text" class="inp-1" placeholder="Enter your location">
+        <img src="images/search.svg" alt="search icon" class="srch-icon">
+        <input type="text" class="inp-1" id="inp-1" placeholder="Find your location" readonly>
+        <img src="images/downArrow2.svg" alt="down arrow" class="dwn-arw" id="dwn-arw">
+      </div>
+
+      <!-- location dropdown -->
+      <div id="location-dropdown" class="dropdown-cnt" >
+        <input id="location-input" type="text" placeholder="Enter your location" />
+        <div id="autocomplete-results"></div>
+        <button id="detect" onclick="detectLocation()"><img src="images/marker.svg">Detect your location</button>
       </div>
     </section>
     <!-- end hero input section -->
@@ -648,7 +656,8 @@
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
-
+  <!-- location of the user -->
+  <script src="js/location.js"></script>
   <!-- toaster -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
   <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>

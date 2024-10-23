@@ -78,9 +78,27 @@ padding-left: 0;
     max-width: 350px; /* Limit the width for readability */
     margin-bottom: 20px; /* Add spacing between stacked cards */
 }
+
+#location-dropdown button{
+  margin-left: 10%;
+  width: 80%;
+}
+#location-input{
+  margin-left: 10%;
+  width: 80%;
+}
 }
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+  #location-dropdown button{
+    margin-left: 10%;
+    width: 80%;
+  }
+  #location-input{
+    margin-left: 10%;
+    width: 80%;
+  }
+}
 
 @media (max-width: 480px) {
   .map_container {

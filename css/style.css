@@ -1227,6 +1227,8 @@ button:focus {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   z-index: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: none; 
 }
 
@@ -1304,6 +1306,39 @@ button:focus {
 .down-arrow-icon {
   cursor: pointer;
 }
+
+#recent-searches-label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  transform: translateX(23%);
+  color: #888585;
+}
+
+#autocomplete-results{
+  max-width: 80%;
+  transform: translateX(12%);
+  background-color: #ffffff;
+  z-index: 1;
+}
+
+#recent-searches{
+  max-width: 60%;
+  transform: translateX(33%);
+  margin-top: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.recent-container div{
+  margin-bottom: 30px;
+}
+
+/* .recent-container div:hover{
+  color: #ffbe33;
+} */
 
 /* Responsive styling */
 @media screen and (max-width: 768px) {

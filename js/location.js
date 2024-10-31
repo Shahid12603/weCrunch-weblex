@@ -27,6 +27,10 @@ document.addEventListener('click', function(event) {
 const inputField = document.getElementById('location-input');
 const inputFieldTwo = document.getElementById('inp-1');
 const autocompleteResults = document.getElementById('autocomplete-results');
+const recentSearchesContainer = document.getElementById('recent-searches'); // Section for recent searches
+const recentSearchesLabel = document.getElementById('recent-searches-label'); // Label for recent searches
+
+let recentSearches = []; // Array to store recent searches
 
 // Function to fetch data from OpenStreetMap Nominatim API
 function fetchLocationSuggestions(query) {
@@ -46,13 +50,48 @@ function displaySuggestions(suggestions) {
     const suggestionDiv = document.createElement('div');
     suggestionDiv.textContent = suggestion.display_name;
     suggestionDiv.addEventListener('click', () => {
-      inputField.value = suggestion.display_name;
+      inputField.value = '';
       inputFieldTwo.value = suggestion.display_name;
       autocompleteResults.innerHTML = ''; // Clear suggestions after selection
+
+      // Add selected suggestion to recent searches
+      addToRecentSearches(suggestion.display_name);
     });
 
     autocompleteResults.appendChild(suggestionDiv);
     console.log(suggestions)
+  });
+}
+
+// Function to add a location to recent searches
+function addToRecentSearches(location) {
+  if (!recentSearches.includes(location)) {
+    recentSearches.push(location); // Add to array if not already present
+    displayRecentSearches();
+  }
+}
+
+// Function to display recent searches in a separate section
+function displayRecentSearches() {
+  recentSearchesContainer.innerHTML = ''; // Clear previous recent searches
+
+  // Show the "Recently Searched" label if there are recent searches
+  if (recentSearches.length > 0) {
+    recentSearchesLabel.style.display = 'block';
+  } else {
+    recentSearchesLabel.style.display = 'none';
+  }
+
+  recentSearches.forEach(search => {
+    const searchDiv = document.createElement('div');
+    searchDiv.textContent = search;
+    searchDiv.addEventListener('click', () => {
+      inputField.value = ''
+      inputFieldTwo.value = search; // Set clicked recent search in inputFieldTwo
+      autocompleteResults.innerHTML = ''; // Clear suggestions after selection
+    });
+
+    recentSearchesContainer.appendChild(searchDiv);
   });
 }
 
@@ -67,6 +106,8 @@ inputField.addEventListener('input', () => {
   }
 });
 // end of manual location
+
+
 
 // detect location automatically when clicked
 function detectLocation(){
@@ -94,10 +135,11 @@ fetch(apiUrl)
     .then(data => {
     let locationName = data.display_name;
     console.log("Location Name: " + locationName);
+    document.getElementById('inp-1').value = locationName;
+    // Displaying position on webpage for testing
   })
   .catch(error => console.error('Error with fetch request: ' + error));
-  document.getElementById('inp-title').innerHTML = data.display_name
-    // Displaying position on webpage for testing
+  
 }
 
 function showError(error) {

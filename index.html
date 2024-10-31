@@ -189,8 +189,13 @@
       <!-- location dropdown -->
       <div id="location-dropdown" class="dropdown-cnt" >
         <input id="location-input" type="text" placeholder="Enter your location" />
+        <!-- <span id="cancel-button" style="display: flex; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #ffbe33;">Cancel</span> -->
         <div id="autocomplete-results"></div>
         <button id="detect" onclick="detectLocation()"><img src="images/marker.svg">Detect your location</button>
+        <div class="recent-container">
+          <p id="recent-searches-label" style="display: none;">Recent Searches</p>
+          <div id="recent-searches"></div>
+        </div>
       </div>
     </section>
     <!-- end hero input section -->

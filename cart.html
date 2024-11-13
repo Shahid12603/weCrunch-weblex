@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Checkout</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    
+
+<div class="container">
+    <!-- Right Section: Cart Details -->
+    <div class="cart-details">
+        <div class="cart-header">Your Cart</div>
+        <div id="cart-items"></div>
+        <div class="cart-summary">
+            <span>Total</span>
+            <span id="total-price">₹0</span>
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Checkout</button>
+        <button class="add-item-btn" onclick="addItemToCart('Chicken Burger', 120)">Add Chicken Burger</button>
+        <button class="add-item-btn" onclick="addItemToCart('Fries', 60)">Add Fries</button>
+    </div>
+</div>
+
+<script src="js/cart.js"></script>
+</body>
+</html>

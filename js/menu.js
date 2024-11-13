@@ -432,7 +432,7 @@ function generateMenuItems() {
             <p>${item.description}</p>
             <div class="options">
               <h6>₹${item.price}</h6>
-              <button class="cart_btn">
+              <button class="cart_btn")">
                 <img src="./images/cartIcon.svg" class="cart-icon" alt="Cart"/>
               </button>
               <div class="i">
